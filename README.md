@@ -1,6 +1,6 @@
 # ctf_notes
 notes gathered from doing numerous CTFs to help with further CTFs
-
+<p> -----------------------------------------------------------------------------------------
 Windows & *nix:
 <p> password spraying:
 <p> - crackmapexec [module] -u [users.txt] -p [passwords.txt] [ip or ip range]
@@ -14,7 +14,8 @@ Windows & *nix:
 <p> 3 - stty raw -echo
 <p> 4 - fg <enter key>
 <p> 5 - export TERM=xterm
-
+<p> -----------------------------------------------------------------------------------------
+<p> general notes:
 <p> known hosts ssh file will show all hosts the host has SSH'd into
 
 <p> - command to reset a broke terminal session
