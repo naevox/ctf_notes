@@ -4,8 +4,8 @@ notes gathered from doing numerous CTFs to help with further CTFs
 Windows & *nix:
 <p> password spraying:
 <p> - crackmapexec [module] -u [users.txt] -p [passwords.txt] [ip or ip range]
-<p> bruteforce
-<p> - medusa -h [ip] -U [users.txt] -P [passwords.txt] -M [module] [ip] (more options may be required, example used was SSH module)
+<p> bruteforce (more options may be required, example used was SSH module):
+<p> - medusa -h [ip] -U [users.txt] -P [passwords.txt] -M [module] [ip] 
 
 
 upgrade shell using python pty library and adds auto complete for steps 2+ :
