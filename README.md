@@ -2,10 +2,14 @@
 notes gathered from doing numerous CTFs to help with further CTFs
 <p> -----------------------------------------------------------------------------------------
 <p> Windows & *nix:
-<p> password spraying:
-<p> - crackmapexec [module] -u [users.txt] -p [passwords.txt] [ip or ip range]
-<p> bruteforce (more options may be required, example used was SSH module):
-<p> - medusa -h [ip] -U [users.txt] -P [passwords.txt] -M [module] [ip] 
+<p> - password spraying:
+<p> crackmapexec [module] -u [users.txt] -p [passwords.txt] [ip or ip range]
+<p> - bruteforce (more options may be required, example used was SSH module):
+<p> medusa -h [ip] -U [users.txt] -P [passwords.txt] -M [module] [ip] 
+<p> general notes:
+<p> known hosts ssh file will show all hosts the host has SSH'd into
+<p> - command to reset a broke terminal session
+<p> reset
 <p> -----------------------------------------------------------------------------------------
 </p>
 <p> upgrade shell using python pty library and adds auto complete for steps 2+ :
@@ -15,11 +19,7 @@ notes gathered from doing numerous CTFs to help with further CTFs
 <p> 4 - fg <enter key>
 <p> 5 - export TERM=xterm
 <p> -----------------------------------------------------------------------------------------
-<p> general notes:
-<p> known hosts ssh file will show all hosts the host has SSH'd into
 
-<p> - command to reset a broke terminal session
-<p> reset
 
 <p> - mysql syntax for navigation:
 <p> show databases; (shows available databases)
