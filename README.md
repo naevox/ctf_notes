@@ -9,7 +9,7 @@ notes gathered from doing numerous CTFs to help with further CTFs
 <p> general notes:
 <p> known hosts ssh file will show all hosts the host has SSH'd into
 <p> - command to reset a broke terminal session
-<p> reset
+<p> $> reset
 <p> -----------------------------------------------------------------------------------------
 </p>
 <p> upgrade shell using python pty library and adds auto complete for steps 2+ :
