@@ -1,7 +1,7 @@
 # ctf_notes
 notes gathered from doing numerous CTFs to help with further CTFs
 <p> -----------------------------------------------------------------------------------------
-Windows & *nix:
+<p> Windows & *nix:
 <p> password spraying:
 <p> - crackmapexec [module] -u [users.txt] -p [passwords.txt] [ip or ip range]
 <p> bruteforce (more options may be required, example used was SSH module):
